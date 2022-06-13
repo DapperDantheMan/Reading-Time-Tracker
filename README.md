@@ -1,2 +1,2 @@
 # Reading-Time-Tracker
-API tracker for readinng habit and reaching daily reading goal
+API tracker for reading habit and reaching daily reading goal
