@@ -1,7 +1,7 @@
 import requests
 from datetime import datetime
-#Step 1: Create a new account on Pixela using the Post request
 
+#Step 1: Create a new account on Pixela using the Post request
 USERNAME = "danny863"
 TOKEN = "dssidjsl480955"
 GRAPH_ID = "graph1"
@@ -34,14 +34,13 @@ graph_config = {
 headers = {
     "X-USER-TOKEN": TOKEN
 }
-# response = requests.post(url=graph_endpoint, json=graph_config, headers=headers)
-# print(response.text)
 
+#Formats for the date below
 today = datetime.now()
 # print(today.strftime("%Y%m%d"))
 
 pixel_config = {
-    "date": "20220601",
+    "date": today.strftime("%Y%m%d"),
     "quantity": input("How many minutes did you read today? "),
 }
 
@@ -53,17 +52,19 @@ pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
 response = requests.post(url=pixel_endpoint, json=pixel_config, headers=headers)
 print(response.text)
 
+#For accessing a specifc date use the format: YYYYMMDD
 #For Put Request
 # put_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/20220405"
 # update_data = {
 #     "quantity": "35",
 # }
-#For Put Reqest
+#For Put Request
 # update_response = requests.put(url=put_endpoint, json=update_data, headers=headers)
 # print(update_response.text)
 
 delete_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today.strftime('%Y%m%d')}"
-
 #For deleting Request
 # delete_response = requests.delete(url=delete_endpoint, headers=headers)
 # print(delete_response.text)
+
+
